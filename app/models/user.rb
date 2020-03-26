@@ -6,11 +6,11 @@ class User < ApplicationRecord
 
   enum role: [ :owner, :admin, :customer ]
 
-  #before_validation :set_role_user, on: :create
+  before_validation :set_role_user, on: :create
 
   private
 
   def set_role_user
-    self.role = "customer"
+    self.role = "customer" unless self.role.present?
   end
 end
