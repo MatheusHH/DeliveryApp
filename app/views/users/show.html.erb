@@ -1,14 +1,26 @@
 <p id="notice"><%= notice %></p>
+<div class="card shadow p-3 mb-5">
+  <div class="card-body">
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <p>
+      <strong>Role:</strong>
+      <%= @user.role %>
+    </p>
 
-<p>
-  <strong>Role:</strong>
-  <%= @user.role %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+    <% unless policy(current_user).redirect_form? %>
+      <%= link_to dashboard_index_path, class: "btn btn-info btn-icon-split btn-sm" do %>
+        <i class="fas fa-backward"></i>
+        <span class="text"> Back</span>
+      <% end %>
+      <% else %>
+      <%= link_to users_path, class: "btn btn-info btn-icon-split btn-sm" do %>
+        <i class="fas fa-backward"></i>
+        <span class="text"> Back</span>
+      <% end %>
+    <% end %>
+  </div>
+</div>
