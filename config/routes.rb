@@ -1,5 +1,6 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  resources :products
   mount Sidekiq::Web => '/sidekiq'
   
   devise_for :users

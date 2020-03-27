@@ -1,0 +1,52 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-body"> 
+    <%= form_with(model: product, local: true) do |form| %>
+      <% if product.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+          <ul>
+            <% product.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :title %>
+            <%= form.text_field :title, class: "form-control" %>
+          </div>
+        </div>    
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.label :price %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><%= product.price.currency.symbol %></span>
+                <%= form.text_field :price, class: "form-control"  %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <%= button_tag type: 'submit', class: "btn btn-success btn-icon-split btn-sm" do %>
+          <i class="fas fa-check"></i>
+          <span class="text"> Save</span>
+        <% end %>
+
+        <%= link_to products_path, class: "btn btn-info btn-icon-split btn-sm" do %>
+            <i class="fas fa-backward"></i>
+            <span class="text"> Back</span>
+          <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

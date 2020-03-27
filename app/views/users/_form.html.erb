@@ -23,6 +23,14 @@
       </div>
 
       <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.email_field :email, class: "form-control" , placeholder: "Email Address", autocomplete: "email" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :password %>

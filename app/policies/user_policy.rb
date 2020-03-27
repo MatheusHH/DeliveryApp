@@ -12,7 +12,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-  	user.admin?
+  	user.admin? || user.owner?
   end
 
   def redirect_form?
@@ -32,7 +32,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-  	record.id == user.id
+  	record.id == user.id || user.owner?
   end
 
   def permitted_attributes

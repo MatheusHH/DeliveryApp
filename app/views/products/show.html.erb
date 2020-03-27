@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+<div class="card shadow p-3 mb-5">
+  <div class="card-body">
+    <p>
+      <strong>Title:</strong>
+      <%= @product.title %>
+    </p>
+
+    <p>
+      <strong>Price:</strong>
+      <%= @product.price %>
+    </p>
+
+    <p>
+      <strong>User:</strong>
+      <%= @product.user_id %>
+    </p>
+
+    <div class="actions">
+      <%= button_tag type: 'submit', class: "btn btn-success btn-icon-split btn-sm" do %>
+        <i class="fas fa-check"></i>
+        <span class="text"> Save</span>
+      <% end %>
+
+      <%= link_to products_path, class: "btn btn-info btn-icon-split btn-sm" do %>
+          <i class="fas fa-backward"></i>
+          <span class="text"> Back</span>
+        <% end %>
+    </div>
+  </div>
+</div>
