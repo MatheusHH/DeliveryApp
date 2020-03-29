@@ -7,6 +7,7 @@ class User < ApplicationRecord
   enum role: [ :owner, :admin, :customer ]
 
   has_many :products
+  has_many :orders
 
   before_validation :set_role_user, on: :create
 
