@@ -1,9 +1,9 @@
 <div class="container">
    <div class="card shopping-cart">
         <div class="card-header bg-dark text-light">
-            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-            Shipping cart
-            <a href="" class="btn btn-outline-info btn-sm pull-right">Continiu shopping</a>
+            <%= link_to root_path, class: "btn btn-outline-info btn-sm pull-right" do %>
+              <span>Keep shopping</span>
+            <% end %>
             <div class="clearfix"></div>
         </div>
         <div class="card-body">
@@ -32,8 +32,9 @@
                                     <%= f.hidden_field :product_id, :value => item.product.id, class: "form-control" %>
                                     <%= f.number_field :quantity, :value => item.quantity.to_i, :min => 1, class: "form-control" %>
                                     <br>
-                                    <%= f.submit "Update", class: "btn btn-outline-secondary pull-right" %>
-                                    <h6><%= item.total %> <span class="text-muted"></span></strong></h6>
+                                    <%= button_tag type: 'submit', class: "btn btn-outline-secondary pull-right" do %>
+                                      <i class="fas fa-sync-alt"></i>
+                                    <% end %>
                                   </div>
                                 </div>
                               </div>
@@ -49,16 +50,11 @@
               <% end %>
             </div>
             <hr>
-             <div class=row>
+            <div class=row>
               <div class="col-lg-3 col-md-6 mb-4">
-                <div id="carts">
-                  <%= render 'carts/cart' %>
-                </div>
+                <h5> Total: <%= humanized_money_with_symbol current_order.subtotal_value %></h5>
               </div>
-              <div class="col-lg-6 col-md-9 mb-4 ">
-                <h5> Total: R$ <%= formatted_value current_order.subtotal %></h5>
-              </div>
-          </div>
+            </div>
         </div>
     </div>
 </div>

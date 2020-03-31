@@ -1,19 +1,22 @@
 class Order < ApplicationRecord
   belongs_to :user
-  has_many :order_items
+  has_many :order_items, dependent: :destroy
 
   monetize :subtotal_cents
   monetize :total_cents
 
   before_save :set_subtotal
 
-  def subtotal
-    order_items.collect{|order_item| order_item.valid? ? order_item.unit_price_cents*order_item.quantity : 0}.sum
+  def subtotal_value
+    total = order_items.collect{|order_item| order_item.valid? ? order_item.unit_price_value*order_item.quantity : 0}.sum
+    total = total * 1.00
+    total = total / 100
+    total.to_s
   end
 
   private
 
   def set_subtotal
-    self[:subtotal_cents] = subtotal
+    self[:subtotal_cents] = subtotal_value
   end
 end

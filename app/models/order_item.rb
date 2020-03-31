@@ -8,7 +8,7 @@ class OrderItem < ApplicationRecord
   before_save :set_unit_price
   before_save :set_total
 
-  def unit_price
+  def unit_price_value
     if persisted?
       self[:unit_price_cents]
     else
@@ -18,14 +18,14 @@ class OrderItem < ApplicationRecord
 
 
   def total
-    unit_price_cents*quantity
+    unit_price_value * quantity
   end
 
 
   private
 
   def set_unit_price
-    self[:unit_price_cents] = unit_price 
+    self[:unit_price_cents] = unit_price_value 
   end
 
   def set_total

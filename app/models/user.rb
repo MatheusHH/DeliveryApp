@@ -4,16 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: [ :owner, :admin, :customer ]
+  enum role: [ :customer, :owner, :admin ]
 
   has_many :products
-  has_many :orders
+  has_many :orders, dependent: :destroy
 
-  before_validation :set_role_user, on: :create
-
-  private
-
-  def set_role_user
-    self.role = "customer" unless self.role.present?
-  end
 end
