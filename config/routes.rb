@@ -1,9 +1,11 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
+  
   mount Sidekiq::Web => '/sidekiq'
   
   devise_for :users
   resources :users
+  resources :order, only: [:index, :show]
   resources :products
   resources :order_items
   resource :carts, only: [:show]
