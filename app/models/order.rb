@@ -2,6 +2,8 @@ class Order < ApplicationRecord
   belongs_to :user
   has_many :order_items, dependent: :destroy
 
+  enum status: [ :pendente, :loja, :pago ]
+
   monetize :subtotal_cents
   monetize :total_cents
 
