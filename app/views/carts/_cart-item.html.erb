@@ -52,7 +52,13 @@
             <hr>
             <div class=row>
               <div class="col-lg-3 col-md-6 mb-4">
-                <h5> Total: <%= formatted_value current_order.subtotal_value %></h5>
+                <h5> Total: R$ <%= formatted_value current_order.subtotal_value %></h5>
+              </div>
+              <div class="col-lg-6 col-md-6 mb-4">
+                <%= link_to checkout_free_path(current_order.id), class: "btn btn-success" do %>
+                  <i class="fas fa-truck"></i>
+                  <span>Review Order </span>
+                <% end %>
               </div>
             </div>
         </div>

@@ -3,18 +3,19 @@
   <div class="card-body">
     <p>
       <strong>Order Number:</strong>
-      <%= @order.id %>
+      <%= @delivery.order.id %>
     </p>
 
     <p>
-      <strong>User:</strong>
-      <%= @order.user.name %>
+      <strong>Customer:</strong>
+      <%= @delivery.user.name %>
     </p>
 
     <p>
-      <strong>status:</strong>
-      <%= @order.status %>
+      <strong>Status:</strong>
+      <%= @delivery.status %>
     </p>
+
   </div>
 </div>
 
@@ -33,7 +34,7 @@
         </thead>
 
         <tbody>
-          <% @order.order_items.each do |item| %>
+          <% @delivery.order.order_items.each do |item| %>
             <tr>
               <td><%= item.order.id %></td>
               <td><%= item.product.title %></td>
@@ -49,17 +50,10 @@
     <div class="row">
       <div class="col-lg-4"></div>
       <div class="col-lg-4">
-        <h5> Subtotal: <%= humanized_money_with_symbol @order.subtotal %> </h5>
+        <h5> Subtotal: <%= humanized_money_with_symbol @delivery.order.subtotal %> </h5>
       </div>
       <div class="col-lg-4"></div>
     </div>
   </div>
 </div>
 
-<div class="actions"> 
-    <%= link_to order_index_path, class: "btn btn-info btn-icon-split btn-sm" do %>
-        <i class="fas fa-backward"></i>
-        <span class="text"> Back</span>
-    <% end %>
-</div>
-<br>

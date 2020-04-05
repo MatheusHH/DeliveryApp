@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :products
   resources :order_items
   resource :carts, only: [:show]
+  resources :checkout_free, only: [:show]
+  resources :deliveries, except: [:new]
   get 'dashboard/index'
   root 'dashboard#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

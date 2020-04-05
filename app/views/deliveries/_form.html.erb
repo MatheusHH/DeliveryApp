@@ -1,0 +1,33 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-body"> 
+    <%= form_with(model: delivery, local: true) do |form| %>
+      <% if delivery.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(delivery.errors.count, "error") %> prohibited this delivery from being saved:</h2>
+
+          <ul>
+            <% delivery.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.label :status %>
+            <%= form.select :status, Delivery.statuses.keys.to_a, {}, class: "form-control" %>
+          </div>
+        </div>    
+      </div>
+
+
+      <div class="actions">
+        <%= button_tag type: 'submit', class: "btn btn-success btn-icon-split btn-sm" do %>
+          <i class="fas fa-check"></i>
+          <span class="text"> Save</span>
+        <% end %>
+    <% end %>
+  </div>
+</div>

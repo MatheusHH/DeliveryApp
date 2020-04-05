@@ -1,0 +1,42 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Deliverys</h1>
+<div class="card shadow p-3 mb-5">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Customer</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @deliveries.each do |delivery| %>
+            <tr>
+              <td><%= delivery.order.id %></td>
+              <td><%= delivery.user.name %></td>
+              <td><%= delivery.status %></td>
+              <td><%= link_to edit_delivery_path(delivery), class: "btn btn-info btn-circle" do %>
+                <i class="fas fa-edit"></i>
+              <% end %>
+              <%= link_to delivery_path(delivery), class: "btn btn-success btn-circle" do  %> 
+                <i class="fas fa-eye"></i> 
+              <% end %>
+              <%= link_to delivery_path(delivery), method: :delete, class: "btn btn-danger btn-circle", data: { confirm: 'Are you sure?' } do  %> 
+                <i class="fas fa-trash"></i> 
+              <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <br>
+
+  </div>  
+</div>

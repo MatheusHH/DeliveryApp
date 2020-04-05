@@ -50,6 +50,11 @@
       <div class="col-lg-4"></div>
       <div class="col-lg-4">
         <h5> Subtotal: <%= humanized_money_with_symbol @order.subtotal %> </h5>
+        <%= form_with(url: deliveries_path, method: :post, local: true) do %>
+          <%= hidden_field_tag("delivery[order_id]", current_order.id) %>
+          <%= hidden_field_tag("delivery[user_id]", current_order.user.id) %>
+          <%= submit_tag("Finish My Order", class: "btn btn-primary") %>
+        <% end %>
       </div>
       <div class="col-lg-4"></div>
     </div>
@@ -57,9 +62,6 @@
 </div>
 
 <div class="actions"> 
-    <%= link_to order_index_path, class: "btn btn-info btn-icon-split btn-sm" do %>
-        <i class="fas fa-backward"></i>
-        <span class="text"> Back</span>
-    <% end %>
+    
 </div>
 <br>

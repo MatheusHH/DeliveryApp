@@ -14,6 +14,7 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
     @order_item.update_attributes(order_params)
+    @order.save
     @order_items = current_order.order_items
     #redirect_to root_path
   end
@@ -22,6 +23,7 @@ class OrderItemsController < ApplicationController
     @order = current_order
     @order_item = @order.order_items.find(params[:id])
     @order_item.destroy
+    @order.save
     @order_items = current_order.order_items
   end
 
