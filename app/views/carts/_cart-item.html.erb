@@ -1,5 +1,5 @@
 <div class="container">
-   <div class="card shopping-cart">
+   <div class="card shadow p-3 mb-5 shopping-cart">
         <div class="card-header bg-dark text-light">
             <%= link_to root_path, class: "btn btn-outline-info btn-sm pull-right" do %>
               <span>Keep shopping</span>
@@ -27,13 +27,14 @@
                         <div>
                             <%= form_for( item , remote: true) do |f| %>
                               <div class="row">
-                                <div class="col-sm-12">
+                                <div class="col-12 col-sm-12 col-md-12">
                                   <div class="form-group">
                                     <%= f.hidden_field :product_id, :value => item.product.id, class: "form-control" %>
                                     <%= f.number_field :quantity, :value => item.quantity.to_i, :min => 1, class: "form-control" %>
                                     <br>
-                                    <%= button_tag type: 'submit', class: "btn btn-outline-secondary pull-right" do %>
+                                    <%= button_tag type: 'submit', class: "btn btn-info btn-block btn-sm" do %>
                                       <i class="fas fa-sync-alt"></i>
+                                      <span class="text">Update</span> 
                                     <% end %>
                                   </div>
                                 </div>
@@ -54,10 +55,11 @@
               <div class="col-lg-3 col-md-6 mb-4">
                 <h5> Total: R$ <%= formatted_value current_order.subtotal_value %></h5>
               </div>
-              <div class="col-lg-6 col-md-6 mb-4">
-                <%= link_to checkout_free_path(current_order.id), class: "btn btn-success" do %>
+              <div class="col-lg-6 col-md-6 mb-4"></div>
+              <div class="col-lg-3 col-md-6 mb-4">
+                <%= link_to checkout_free_path(current_order.id), class: "btn btn-success btn-block btn-sm" do %>
                   <i class="fas fa-truck"></i>
-                  <span>Review Order </span>
+                  <span>Review Order and data </span>
                 <% end %>
               </div>
             </div>

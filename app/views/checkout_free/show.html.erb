@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="card shadow p-3 mb-5">
+  <div class="card-header"> Customer Details </div>
   <div class="card-body">
     <p>
       <strong>Order Number:</strong>
@@ -20,6 +21,7 @@
 
 <div class="card shadow p-3 mb-5">
   <div class="card-body">
+    <div class="card-header"> Shopping Description </div>
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
@@ -47,13 +49,14 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-lg-4"></div>
       <div class="col-lg-4">
         <h5> Subtotal: <%= humanized_money_with_symbol @order.subtotal %> </h5>
+      </div>
+      <div class="col-lg-4">
         <%= form_with(url: deliveries_path, method: :post, local: true) do %>
           <%= hidden_field_tag("delivery[order_id]", current_order.id) %>
           <%= hidden_field_tag("delivery[user_id]", current_order.user.id) %>
-          <%= submit_tag("Finish My Order", class: "btn btn-primary") %>
+          <%= submit_tag("Finish My Order", class: "btn btn-primary btn-block btn-sm") %>
         <% end %>
       </div>
       <div class="col-lg-4"></div>
