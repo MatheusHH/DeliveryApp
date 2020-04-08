@@ -51,6 +51,57 @@
         </div>
       </div>
 
+      <%= form.fields_for :address do |ff| %>
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-12">
+              <%= ff.label :cep %>
+              <%= ff.text_field :cep, class: "form-control", placeholder: "Digite o CEP" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-12">
+              <%= ff.label :street %>
+              <%= ff.text_field :street, class: "form-control", placeholder: "Digite a Rua" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-12">
+              <%= ff.label :neighborhood %>
+              <%= ff.text_field :neighborhood, class: "form-control", placeholder: "Digite o nome da Rua" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="form-group">
+            <div class="col-sm-12">
+              <%= ff.label :city %>
+              <%= ff.text_field :city, class: "form-control", placeholder: "Digite o nome da Cidade" %>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="row"> 
+          <div class="form-group">
+            <div class="col-sm-12">
+              <%= ff.label :state %>
+              <%= ff.text_field :state, class: "form-control", placeholder: "Digite o nome do Estado" %>
+
+            </div>
+          </div>
+        </div>
+
+      <% end %>
+
+
       <% if policy(current_user).role_field? %>
         <div class="row">
           <div class="col-sm-4">

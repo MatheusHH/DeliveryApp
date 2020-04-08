@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.build_address
     authorize @user
   end
 
@@ -81,7 +82,7 @@ class UsersController < ApplicationController
         params[:user].delete(:password_confirmation)
       end
       if @user.blank?
-        params.require(:user).permit(:name, :role, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :role, :email, :password, :password_confirmation, address_attributes: [:id, :cep, :neighborhood, :street, :city, :state, :_destroy])
       else
         params.require(:user).permit(policy(@user).permitted_attributes)
       end

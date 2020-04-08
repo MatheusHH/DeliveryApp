@@ -39,7 +39,7 @@ class UserPolicy < ApplicationPolicy
   	if user.owner?
   		[:name, :email, :password, :password_confirmation, :role]
   	else
-  		[:name, :email, :password, :password_confirmation]
+  		[:name, :email, :password, :password_confirmation, address_attributes: [:id, :cep, :neighborhood, :street, :city, :state, :_destroy]]
   	end
   end
 end

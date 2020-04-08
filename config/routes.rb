@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   
   mount Sidekiq::Web => '/sidekiq'
   
-  devise_for :users
+  devise_for :users, controllers: {registrations: 'user/registrations'}
   resources :users
   resources :order, only: [:index, :show]
   resources :products

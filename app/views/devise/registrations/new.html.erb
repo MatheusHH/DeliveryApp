@@ -26,6 +26,33 @@
                   </div>
                 </div>
 
+                <%= f.fields_for :address do |ff| %>
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <%= ff.text_field :cep, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o CEP", require: true %>
+                    </div>
+                    <div class="col-sm-6">
+                      <%= ff.text_field :street, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite a Rua", require: true %>
+                    </div>      
+                  </div>
+
+                  <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                      <%= ff.text_field :neighborhood, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o nome da Rua", require: true %>
+                    </div>
+                    <div class="col-sm-6">
+                      <%= ff.text_field :city, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o nome da Cidade", require: true %>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <%= ff.text_field :state, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o nome do Estado", require: true %>
+                  </div>
+
+                <% end %>
+
+
+
                 <div class="actions">
                   <%= f.submit "Sign up", class: "btn btn-primary btn-user btn-block" %>
                 </div>
