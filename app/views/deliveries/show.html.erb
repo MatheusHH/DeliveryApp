@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="card shadow p-3 mb-5">
+  <div class="card-header"> Order Details </div>
   <div class="card-body">
     <p>
       <strong>Order Number:</strong>
@@ -7,19 +8,46 @@
     </p>
 
     <p>
-      <strong>Customer:</strong>
-      <%= @delivery.user.name %>
-    </p>
-
-    <p>
-      <strong>Status:</strong>
+      <strong>Delivery Status:</strong>
       <%= @delivery.status %>
     </p>
 
   </div>
 </div>
 
+
 <div class="card shadow p-3 mb-5">
+  <div class="card-header"> Customer Address </div>
+  <div class="card-body">
+    <p>
+      <strong>Customer:</strong>
+      <%= @delivery.user.name %>
+    </p>
+
+    <p>
+      <strong>Street:</strong>
+      <%= @delivery.user.address.street %>
+    </p>
+
+    <p>
+      <strong>Neighborhood:</strong>
+      <%= @delivery.user.address.neighborhood %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @delivery.user.address.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @delivery.user.address.state %>
+    </p>
+  </div>
+</div>
+
+<div class="card shadow p-3 mb-5">
+  <div class="card-header"> Shopping Description </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover">
@@ -52,7 +80,17 @@
       <div class="col-lg-4">
         <h5> Subtotal: <%= humanized_money_with_symbol @delivery.order.subtotal %> </h5>
       </div>
-      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <% if current_user.customer? %> 
+          <%= link_to root_path, class: "btn btn-info btn-block btn-sm" do %>
+            <span>Keep shopping</span>
+          <% end %>
+        <% elsif current_user.admin? %>
+          <%= link_to deliveries_path, class: "btn btn-info btn-block btn-sm" do %>
+            <span>Back Deliveries</span>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

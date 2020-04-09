@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="card shadow p-3 mb-5">
-  <div class="card-header"> Customer Details </div>
+  <div class="card-header"> Order Details </div>
   <div class="card-body">
     <p>
       <strong>Order Number:</strong>
@@ -8,13 +8,39 @@
     </p>
 
     <p>
-      <strong>User:</strong>
+      <strong>status:</strong>
+      <%= @order.status %>
+    </p>
+  </div>
+</div>
+
+
+<div class="card shadow p-3 mb-5">
+  <div class="card-header"> Customer Address </div>
+  <div class="card-body">
+    <p>
+      <strong>Customer:</strong>
       <%= @order.user.name %>
     </p>
 
     <p>
-      <strong>status:</strong>
-      <%= @order.status %>
+      <strong>Street:</strong>
+      <%= @order.user.address.street %>
+    </p>
+
+    <p>
+      <strong>Neighborhood:</strong>
+      <%= @order.user.address.neighborhood %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @order.user.address.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @order.user.address.state %>
     </p>
   </div>
 </div>
@@ -63,6 +89,7 @@
     </div>
   </div>
 </div>
+
 
 <div class="actions"> 
     

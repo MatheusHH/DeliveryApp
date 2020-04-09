@@ -15,7 +15,7 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                   </div>
-
+                  <%= render 'layouts/shared/messages' %>
                   <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: "user"}) do |f| %>
                     <div class="form-group">
                       <%= f.email_field :email, class: "form-control form-control-user", id: "exampleInputEmail", placeholder: "Enter Email Address...", autofocus: true, autocomplete: "email", aria: { describedby: "emailHelp"} %>

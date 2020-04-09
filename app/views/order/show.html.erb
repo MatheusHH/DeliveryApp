@@ -1,13 +1,14 @@
 <p id="notice"><%= notice %></p>
 <div class="card shadow p-3 mb-5">
+  <div class="card-header"> Order Details </div>
   <div class="card-body">
     <p>
       <strong>Order Number:</strong>
-      <%= @order.id %>
+      <%= @order.id %> 
     </p>
 
     <p>
-      <strong>User:</strong>
+      <strong>Customer:</strong>
       <%= @order.user.name %>
     </p>
 
@@ -19,6 +20,18 @@
 </div>
 
 <div class="card shadow p-3 mb-5">
+  <div class="card-header"> Delivery Status </div>
+  <div class="card-body">
+    <p>
+      <strong>Status:</strong>
+      <%= @order.delivery.status if @order.delivery.present? %> 
+    </p>
+
+  </div>
+</div>
+
+<div class="card shadow p-3 mb-5">
+  <div class="card-header"> Shopping Description </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover">
@@ -51,15 +64,14 @@
       <div class="col-lg-4">
         <h5> Subtotal: <%= humanized_money_with_symbol @order.subtotal %> </h5>
       </div>
-      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <%= link_to order_index_path, class: "btn btn-info btn-icon-split btn-block btn-sm" do %>
+          <i class="fas fa-backward"></i>
+        <span class="text"> Back</span> 
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
 
-<div class="actions"> 
-    <%= link_to order_index_path, class: "btn btn-info btn-icon-split btn-sm" do %>
-        <i class="fas fa-backward"></i>
-        <span class="text"> Back</span>
-    <% end %>
-</div>
 <br>
