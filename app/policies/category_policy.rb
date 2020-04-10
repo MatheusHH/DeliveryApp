@@ -1,4 +1,4 @@
-class ProductPolicy < ApplicationPolicy
+class CategoryPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       if user.admin?
@@ -10,6 +10,10 @@ class ProductPolicy < ApplicationPolicy
   end
 
   def new?
+    user.admin?
+  end
+
+  def show?
     user.admin?
   end
 

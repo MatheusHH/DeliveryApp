@@ -51,6 +51,13 @@
                 <% end %>
 
                 <% if policy(current_user).index? %>
+                  <%= link_to categories_path, class: "collapse-item" do %>
+                    <i class="fas fa-fw fa-list"></i>
+                    <span>Categories</span>
+                  <% end %>
+                <% end %>
+
+                <% if policy(current_user).index? %>
                   <%= link_to deliveries_path, class: "collapse-item" do %>
                     <i class="fas fa-fw fa-list"></i>
                     <span>Deliveries</span>

@@ -23,6 +23,20 @@
       </div>
 
       <div class="row">
+        <div class="col-sm-5">
+          <div class="form-group">
+            <%= form.label :category_id %>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <%= link_to new_category_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+              </div>
+              <%= form.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
         <div class="col-sm-6">
           <div class="form-group">
             <%= form.label :price %>
