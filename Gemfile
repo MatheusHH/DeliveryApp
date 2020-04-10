@@ -27,6 +27,8 @@ gem 'sidekiq'
 gem "pundit"
 # Gem for money
 gem 'money-rails', '~>1.12'
+# Pagination
+gem 'kaminari'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

@@ -1,8 +1,10 @@
 class ProductPolicy < ApplicationPolicy
   class Scope < Scope
-    class Scope < Scope
-      def resolve
+    def resolve
+      if user.admin?
         scope.all
+      else
+        raise Pundit::NotAuthorizedError, 'Not allowed to view this action'
       end
     end
   end

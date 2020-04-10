@@ -4,7 +4,7 @@ class UserPolicy < ApplicationPolicy
     	if user.admin?
         scope.where(role: :customer)
       elsif user.owner?
-        scope.all
+        scope.where(role: :admin)
       else
       	raise Pundit::NotAuthorizedError, 'Not allowed to view this action'
       end
