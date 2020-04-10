@@ -28,9 +28,9 @@
             <%= form.label :category_id %>
             <div class="input-group mb-3">
               <div class="input-group-prepend">
-                <%= link_to new_category_path, class: "btn btn-outline-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+                <%= link_to new_category_path, class: "btn btn-secondary", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
               </div>
-              <%= form.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
+              <%= form.select(:category_id, Category.all.collect {|p| [ p.title, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
             </div>
           </div>
         </div>
@@ -64,3 +64,5 @@
     <% end %>
   </div>
 </div>
+
+<%= render partial: "modals/new_category" %>
