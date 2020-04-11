@@ -1,0 +1,4 @@
+$("#results").hide();
+$("#pagination").hide();
+$("#search-results").html("<%= escape_javascript(render :partial => 'results') %>");
+$("#pagination-js").html("<%= escape_javascript(render :partial => 'pagination') %>");
