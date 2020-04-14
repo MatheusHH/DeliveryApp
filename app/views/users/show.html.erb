@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="card shadow p-3 mb-5">
+<div class="card-header"> Customer Details </div>
   <div class="card-body">
     <p>
       <strong>Name:</strong>
@@ -7,10 +8,31 @@
     </p>
 
     <p>
-      <strong>Role:</strong>
-      <%= @user.role %>
+      <strong>Email:</strong>
+      <%= @user.email %>
     </p>
 
+    <p>
+      <strong>Street:</strong>
+      <%= @user.address.street %>
+    </p>
+
+    <p>
+      <strong>Neighborhood:</strong>
+      <%= @user.address.neighborhood %>
+    </p>
+
+    <p>
+      <strong>City:</strong>
+      <%= @user.address.city %>
+    </p>
+
+    <p>
+      <strong>State:</strong>
+      <%= @user.address.state %>
+    </p>
+    
+    <div class="card-footer"> 
     <% unless policy(current_user).redirect_form? %>
       <%= link_to dashboard_index_path, class: "btn btn-info btn-icon-split btn-sm" do %>
         <i class="fas fa-backward"></i>
@@ -22,5 +44,6 @@
         <span class="text"> Back</span>
       <% end %>
     <% end %>
+    </div>
   </div>
 </div>

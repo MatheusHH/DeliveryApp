@@ -29,6 +29,8 @@ gem "pundit"
 gem 'money-rails', '~>1.12'
 # Pagination
 gem 'kaminari'
+# Active Storage processing
+gem 'image_processing'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

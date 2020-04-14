@@ -2,7 +2,8 @@ $(function () {
   $('#productModal').modal();
 
   $('h5.modal-title').text(' <%= @product.title %>');
-  $('h6.product-price').text('Price: R$ <%= @product.price %>');
-  $('h6.product-description').text('Description: <%= @product.description %>');
-  $('h6.product-category').text('Category: <%= @product.category.title %>');
+  $('#product-image').prepend('<%= image_tag @product.image.variant(resize: "500x190") if @product.image.attached? %>');
+  $('#product-price').text('Price: R$ <%= @product.price %>');
+  $('#description').text('Description: <%= @product.description %>');
+  $('#category').text('Category: <%= @product.category.title %>');
 });

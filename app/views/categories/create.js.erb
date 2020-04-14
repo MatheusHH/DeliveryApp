@@ -1,10 +1,10 @@
 $(function () {
   <% if @category.errors.any? %>
 	  $.notify("<%= j @category.errors.full_messages.join('; ') %>", "error");
-    setTimeout(function(){ window.location.reload(); }, 3000);
+    setTimeout(function(){ window.location.reload(); }, 2000);
   <% else %>
 	  $.notify(" Category was successfully created ", "success");
-    setTimeout(function(){ window.location.reload(); }, 3000);
+    setTimeout(function(){ window.location.reload(); }, 2000);
 	  $('#newCategoryModal').modal('hide');
   <% end %>
 });

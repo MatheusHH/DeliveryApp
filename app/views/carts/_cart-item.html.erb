@@ -11,12 +11,12 @@
             <div class="row">
               <% @order_items.each do |item| %>   
                 <div class="col-12 col-sm-12 col-md-2 text-center">
-                        <img class="img-responsive" src="http://placehold.it/120x80" alt="prewiew" width="120" height="80">
+                  <%= image_tag item.product.image.variant(resize: "120x80"), class: "img-responsive" if item.product.image.attached? %>
                 </div>
                 <div class="col-12 text-sm-center col-sm-12 text-md-left col-md-6">
                     <h4 class="product-name"><strong><%= item.product.title %></strong></h4>
                     <h4 class="product-description">
-                        <small>Product description</small>
+                        <small><%= item.product.description %></small>
                     </h4>
                 </div>
                 <div class="col-12 col-sm-12 text-sm-right col-md-4 text-md-right row" id="price">

@@ -22,6 +22,15 @@ module ApplicationHelper
   #  end
   #end
 
+  def pendent_deliveries
+    @quantity = Delivery.where(status: :pendente).size
+  end
+
+  def current_date
+    date = Time.now
+    date.strftime("%d/%m/%Y")
+  end
+
   def formatted_value(value)
     value = value * 1.00
     value = value / 100

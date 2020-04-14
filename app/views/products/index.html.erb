@@ -9,6 +9,7 @@
           <tr>
             <th>Title</th>
             <th>Price</th>
+            <th>Image</th>
             <th>User</th>
             <th>Actions</th>
           </tr>
@@ -19,6 +20,7 @@
             <tr>
               <td><%= product.title %></td>
               <td><%= product.price %></td>
+              <td><%= image_tag product.image.variant(resize: "100x100") if product.image.attached? %></td>
               <td><%= product.user_id %></td>
               <td><%= link_to edit_product_path(product), class: "btn btn-info btn-circle" do %>
                 <i class="fas fa-edit"></i>
