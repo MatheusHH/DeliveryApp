@@ -82,10 +82,16 @@
         <%= form_with(url: deliveries_path, method: :post, local: true) do %>
           <%= hidden_field_tag("delivery[order_id]", current_order.id) %>
           <%= hidden_field_tag("delivery[user_id]", current_order.user.id) %>
-          <%= submit_tag("Finish My Order", class: "btn btn-primary btn-block btn-sm") %>
+          <% if current_order.order_items.size > 0 %>
+           <%= submit_tag("Finish My Order", class: "btn btn-primary btn-block btn-sm") %>
+          <% end %>
         <% end %>
       </div>
-      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <%= link_to root_path, class: "btn btn-warning btn-block btn-sm" do %>
+         <span>Keep Shopping</span>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

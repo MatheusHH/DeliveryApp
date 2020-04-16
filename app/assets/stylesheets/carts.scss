@@ -74,10 +74,6 @@
        font-size: 1.0rem !important;
    }
 
-   h6 {
-       font-size: 0.6rem !important;
-   }
-
    .product-name {
        text-align: center;
    }
@@ -87,7 +83,12 @@
    }
 
    #price {
+       font-size: 0.6rem !important;
        margin-left: auto;
    }
+
+   #quantity, #delete-button, #submit-button {
+       font-size: 0.6rem;
+   } 
 
 }
