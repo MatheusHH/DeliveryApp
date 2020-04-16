@@ -1,1 +1,9 @@
-$('#carts').html("<%= escape_javascript(render('carts/cart')) %>")
+$(function () {
+    $('#carts').html("<%= escape_javascript(render('carts/cart')) %>") 
+
+  <% if @order_item.errors.any? %>
+    $.notify("<%= j @order_item.errors.full_messages.join('; ') %>", "error"); 
+  <% else %>
+    $.notify("Item was successfully added", "success");
+  <% end %>
+}); 

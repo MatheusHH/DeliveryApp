@@ -2,7 +2,7 @@ $(function () {
   $('#productModal').modal();
 
   $('h5.modal-title').text(' <%= @product.title %>');
-  $('#product-image').prepend('<%= image_tag @product.image.variant(resize: "500x190") if @product.image.attached? %>');
+  $('#product-image').html('<%= image_tag @product.image.variant(resize: "500x190") if @product.image.attached? %>');
   $('#product-price').text('Price: R$ <%= @product.price %>');
   $('#description').text('Description: <%= @product.description %>');
   $('#category').text('Category: <%= @product.category.title %>');

@@ -1,2 +1,10 @@
-$('#carts').html("<%= escape_javascript(render('carts/cart')) %>")
-$('#cart-item').html("<%= escape_javascript(render('carts/cart-item')) %>")
+$(function () {
+  $('#carts').html("<%= escape_javascript(render('carts/cart')) %>")
+  $('#cart-item').html("<%= escape_javascript(render('carts/cart-item')) %>")
+
+  <% if @order_item.errors.any? %>
+    $.notify("<%= j @order_item.errors.full_messages.join('; ') %>", "error"); 
+  <% else %>
+    $.notify("Item was successfully updated", "success");
+  <% end %>
+}); 

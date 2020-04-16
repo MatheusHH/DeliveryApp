@@ -7,7 +7,7 @@ class OrderItemsController < ApplicationController
     @order.user = current_user
     @order_item = @order.order_items.new(order_params)
     @order.save
-    session[:order_id] = @order.id 
+    session[:order_id] = @order.id  
   end
 
   def update
@@ -16,7 +16,6 @@ class OrderItemsController < ApplicationController
     @order_item.update_attributes(order_params)
     @order.save
     @order_items = current_order.order_items
-    #redirect_to root_path
   end
 
   def destroy
