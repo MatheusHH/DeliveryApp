@@ -1,9 +1,11 @@
 $(function () {
-    $('#carts').html("<%= escape_javascript(render('carts/cart')) %>") 
+  $('#carts').html("<%= escape_javascript(render('carts/cart')) %>") 
 
   <% if @order_item.errors.any? %>
-    $.notify("<%= j @order_item.errors.full_messages.join('; ') %>", "error"); 
+    <% @order_item.errors.full_messages.each do |message| %>
+      $.notify("<%= message %>", "error");
+    <% end %> 
   <% else %>
-    $.notify("Item was successfully added", "success");
+    $.notify("Item was successfully added", {className: 'success', globalPosition: 'top right'});
   <% end %>
 }); 

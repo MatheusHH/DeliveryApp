@@ -3,8 +3,10 @@ $(function () {
   $('#cart-item').html("<%= escape_javascript(render('carts/cart-item')) %>")
 
   <% if @order_item.errors.any? %>
-    $.notify("<%= j @order_item.errors.full_messages.join('; ') %>", "error"); 
+    <% @order_item.errors.full_messages.each do |message| %>
+      $.notify("<%= message %>", "error");
+    <% end %>  
   <% else %>
-    $.notify("Item was successfully updated", "success");
+    $.notify("Item was successfully updated", {className: 'info', globalPosition: 'top right'});
   <% end %>
 }); 

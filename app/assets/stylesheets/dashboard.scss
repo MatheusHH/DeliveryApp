@@ -1,3 +1,13 @@
 // Place all the styles related to the dashboard controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+@media only screen and (max-width: 768px) {
+    #search_col {
+        margin-bottom: 1rem !important;  
+    }
+
+    #search_card {
+        margin-bottom: 1rem !important;
+    }
+}

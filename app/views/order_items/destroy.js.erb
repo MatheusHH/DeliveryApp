@@ -2,5 +2,5 @@ $(function () {
   $('#carts').html("<%= escape_javascript(render('carts/cart')) %>")
   $('#cart-item').html("<%= escape_javascript(render('carts/cart-item')) %>")
 
-  $.notify("Item was successfully deleted", "info");
+  $.notify("Item was successfully deleted", {className: 'warning', globalPosition: 'top right'});
 }); 
