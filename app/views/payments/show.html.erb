@@ -1,0 +1,218 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-header"> Shopping Description </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total Item</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @order.order_items.each do |item| %>
+            <tr>
+              <td><%= image_tag item.product.image.variant(resize: "100x100") if item.product.image.attached? %></td>
+              <td><%= item.product.title %></td>
+              <td><%= item.quantity %></td>
+              <td><%= humanized_money_with_symbol item.product.price %></td>
+              <td>R$<%= formatted_value item.total %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-lg-4">
+        <h5> Subtotal: <%= humanized_money_with_symbol @order.subtotal %> </h5>
+      </div>
+      <div class="col-lg-4">
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div>
+</div> 
+
+<div class="card shadow p-3 mb-5">
+  <div class="card-header"> Card / Customer Details </div>
+  <div class="card-body">
+    <%= form_with(url: payments_path, method: :post, local: true, id: "payment_form") do |form| %>
+      <%= form.hidden_field "payment[order_id]", value: @order.id %>
+      <%= form.hidden_field "payment[user_id]", value: @order.user.id %>
+      <%= form.hidden_field "payment[subtotal]", value: @order.subtotal_cents %>
+      <%= form.hidden_field "payment[country]", value: 'BRA' %>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[fullname]", class: "form-control", placeholder: "Nome Completo" %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[email]", class: "form-control", placeholder: "Email" %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[cpf]", class: "form-control", placeholder: "CPF" %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[area_code]", class: "form-control", placeholder: "Código de área" %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[phone]", class: "form-control", placeholder: "Número Telefone" %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[street]", class: "form-control", placeholder: "Nome da Rua" %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[number]", class: "form-control", placeholder: "Número casa" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[city]", class: "form-control", placeholder: "Nome da Cidade" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[district]", class: "form-control", placeholder: "Nome do Bairro" %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= render_states("payment[state]") %>
+          </div>
+        </div>
+      </div>
+       <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "payment[zipcode]", class: "form-control", placeholder: "CEP" %>
+          </div>
+        </div>
+      </div>
+
+       <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.select(:birthdate_day, options_for_select( (1..31).to_a),{}, { class: "form-control" } ) %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.select(:birthdate_month, options_for_select( (1..12).to_a),{}, { class: "form-control" } ) %>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.select(:birthdate_year, options_for_select( (birthdate_year_range)),{}, { class: "form-control" } ) %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "card[fullname]", class: "form-control", placeholder: "Nome Completo", id: "fullname" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "card[cpf]", class: "form-control", placeholder: "CPF Titular", id: "cpf" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.date_field "card[birthdate]", class: "form-control", placeholder: "", id: "birthdate" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "card[number]", class: "form-control", placeholder: "Número do Cartão", id: "card_number" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.select "expiration_month", options_for_select((1..12).to_a), {}, class: "form-control" %>          
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="form-group">
+            <%= form.select "expiration_year", credit_card_expiration_year_range, {}, class: "form-control" %>          
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <%= form.text_field "card[cvc]", class: "form-control", placeholder: "CVC", id: "card_cvc" %>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+             <textarea id="public_key" style="display:none;">
+              -----BEGIN PUBLIC KEY-----
+              MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkI1ZPhsNPmLg9OpbCHy4
+              P4ptYspYq+CLKA4KhyEWNlK9B8H2KTe+CZyqr4uPVMrgdyuE4F5svoh/o7Qw6FgY
+              e02NUSAjhHSMt0GfyzUdpUlOeQGk3y3uPMJjzKxIjDQ2AomWeT713YI6jyz8iMZZ
+              93BedAeNIKCEelQ2WDVP3EyvAXzRWR9lxUbhUKY0Cl6D9K9L3wofFcvq/cTfQEui
+              g47pg5xrErVQjrcFo/fjhUTZS5OUKXKEUNbZZTZj+T2fklOXXtbK76znf1/6JxI1
+              zSh5Jsg0Sfk1BAKJkijg7YcdTc4nBhpOE2QVNVFEw8ioxMxrrJePZl+FOqV8Cn+K
+              nwIDAQAB
+              -----END PUBLIC KEY-----
+             </textarea>
+          </div>
+        </div>
+      </div>
+
+      <%= form.hidden_field "card_hash", value: '' %>
+
+      <%= form.submit "Pay Order", class: "btn btn-success btn-block btn-sm" %>
+    <% end %>    
+  </div>
+</div>

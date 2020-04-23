@@ -12,10 +12,12 @@ require("packs/sbadmin2")
 require("packs/mobile")
 require("packs/jquery-easing")
 require("packs/notify");
+require ("packs/payments");
 
 import "bootstrap";
 import "./stylesheets/application.scss";
 import "@fortawesome/fontawesome-free/js/all";
+
 
 
 

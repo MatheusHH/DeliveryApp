@@ -43,7 +43,7 @@ class DeliveriesController < ApplicationController
   end
 
   private
-
+ 
   def set_delivery
     @delivery = Delivery.find(params[:id])
   end

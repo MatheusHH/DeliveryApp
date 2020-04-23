@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :orders, dependent: :destroy
   has_one :address, dependent: :destroy
+  has_many :payments
 
   accepts_nested_attributes_for :address, allow_destroy: true
 

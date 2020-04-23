@@ -1,13 +1,14 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   
-  resources :categories
   mount Sidekiq::Web => '/sidekiq'
   
   devise_for :users, controllers: {registrations: 'user/registrations'}
   resources :users
   resources :order, only: [:index, :show]
   resources :products
+  resources :categories
+  resources :payments, only: [:show, :create]
   resources :order_items
   resource :carts, only: [:show]
   resources :checkout_free, only: [:show]
