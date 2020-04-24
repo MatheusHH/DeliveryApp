@@ -4,5 +4,5 @@ class Payment < ApplicationRecord
 
   monetize :total_cents
 
-  enum status: [ :processando, :pago ]
+  enum status: [ :processando, :recusado, :pago ]
 end

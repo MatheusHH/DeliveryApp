@@ -1,0 +1,99 @@
+  <%= form.hidden_field "payment[order_id]", value: @order.id %>
+  <%= form.hidden_field "payment[user_id]", value: @order.user.id %>
+  <%= form.hidden_field "payment[subtotal]", value: @order.subtotal_cents %>
+  <%= form.hidden_field "payment[country]", value: 'BRA' %>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[fullname]", class: "form-control", placeholder: "Nome Completo" %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[email]", class: "form-control", placeholder: "Email" %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[cpf]", class: "form-control", placeholder: "CPF" %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[area_code]", class: "form-control", placeholder: "Código de área" %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[phone]", class: "form-control", placeholder: "Número Telefone" %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[street]", class: "form-control", placeholder: "Nome da Rua" %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[number]", class: "form-control", placeholder: "Número casa" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[city]", class: "form-control", placeholder: "Nome da Cidade" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[district]", class: "form-control", placeholder: "Nome do Bairro" %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= render_states("payment[state]") %>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "payment[zipcode]", class: "form-control", placeholder: "CEP" %>
+      </div>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <%= form.select(:birthdate_day, options_for_select( (1..31).to_a),{}, { class: "form-control" } ) %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <%= render_months("birthdate_month") %>
+      </div>
+    </div>
+    <div class="col-sm-3">
+      <div class="form-group">
+        <%= form.select(:birthdate_year, options_for_select( (birthdate_year_range)),{}, { class: "form-control" } ) %>
+      </div>
+    </div>
+  </div>

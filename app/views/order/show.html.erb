@@ -13,9 +13,16 @@
     </p>
 
     <p>
-      <strong>status:</strong>
+      <strong>Status Order:</strong>
       <%= @order.status %>
     </p>
+  
+    <% if @order.payment.present? %>
+      <p>
+        <strong>Status Payment:</strong>
+        <%= @order.payment.status %>
+      </p>
+    <% end %>
   </div>
 </div>
 

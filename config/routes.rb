@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   
   devise_for :users, controllers: {registrations: 'user/registrations'}
+  post '/webhooks', to: 'webhooks#webhooks'
   resources :users
   resources :order, only: [:index, :show]
   resources :products

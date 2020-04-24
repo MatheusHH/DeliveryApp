@@ -29,8 +29,32 @@ module PaymentHelper
         ["Tocantins", "TO"]
     ]
 
+    MESES_ANO = [
+        ["Janeiro", "1"],
+        ["Fevereiro", "2"],
+        ["Março", "3"],
+        ["Abril", "4"],
+        ["Maio", "5"],
+        ["Junho", "6"],
+        ["Julho", "7"],
+        ["Agosto", "8"],
+        ["Setembro", "9"],
+        ["Outubro", "10"],
+        ["Novembro", "11"],
+        ["Dezembro", "12"]
+    ]
+
+
     def render_states(name)
         select_tag(name, options_for_select(ESTADOS_BRASILEIROS), class: "form-control", prompt: "Estados")
+    end
+
+    def render_months(name)
+        select_tag(name, options_for_select(MESES_ANO), class: "form-control", prompt: "Mês")
+    end
+
+    def render_months_card(name)
+        select_tag(name, options_for_select(MESES_ANO), class: "form-control", prompt: "Mês de Expiração")
     end
 
     def credit_card_expiration_year_range

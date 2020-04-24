@@ -1,0 +1,69 @@
+<div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "card[fullname]", class: "form-control", placeholder: "Nome Completo", id: "fullname" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "card[cpf]", class: "form-control", placeholder: "CPF Titular", id: "cpf" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.date_field "card[birthdate]", class: "form-control", placeholder: "", id: "birthdate" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.text_field "card[number]", class: "form-control", placeholder: "Número do Cartão", id: "card_number" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= render_months_card("expiration_month") %>          
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="form-group">
+        <%= form.select "expiration_year", credit_card_expiration_year_range, {prompt: "Ano Expiração"}, class: "form-control" %>          
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2">
+      <div class="form-group">
+        <%= form.text_field "card[cvc]", class: "form-control", placeholder: "CVC", id: "card_cvc" %>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+          <textarea id="public_key" style="display:none;">
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAkI1ZPhsNPmLg9OpbCHy4
+          P4ptYspYq+CLKA4KhyEWNlK9B8H2KTe+CZyqr4uPVMrgdyuE4F5svoh/o7Qw6FgY
+          e02NUSAjhHSMt0GfyzUdpUlOeQGk3y3uPMJjzKxIjDQ2AomWeT713YI6jyz8iMZZ
+          93BedAeNIKCEelQ2WDVP3EyvAXzRWR9lxUbhUKY0Cl6D9K9L3wofFcvq/cTfQEui
+          g47pg5xrErVQjrcFo/fjhUTZS5OUKXKEUNbZZTZj+T2fklOXXtbK76znf1/6JxI1
+          zSh5Jsg0Sfk1BAKJkijg7YcdTc4nBhpOE2QVNVFEw8ioxMxrrJePZl+FOqV8Cn+K
+          nwIDAQAB
+          -----END PUBLIC KEY-----
+          </textarea>
+      </div>
+    </div>
+  </div>
+
+  <%= form.hidden_field "card_hash", value: '' %>
