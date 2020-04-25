@@ -6,5 +6,5 @@ class Product < ApplicationRecord
 
   monetize :price_cents
 
-  validates :title, :description, presence: true 
+  validates :title, :description, :category_id, presence: true 
 end

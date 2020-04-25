@@ -74,10 +74,10 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-lg-4">
+      <div class="col-lg-6">
         <h5> Subtotal: <%= humanized_money_with_symbol @order.subtotal %> </h5>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <%= form_with(url: deliveries_path, method: :post, local: true) do %>
           <%= hidden_field_tag("delivery[order_id]", current_order.id) %>
           <%= hidden_field_tag("delivery[user_id]", current_order.user.id) %>
@@ -86,7 +86,7 @@
           <% end %>
         <% end %>
       </div>
-      <div class="col-lg-4">
+      <div class="col-lg-3">
         <%= link_to root_path, class: "btn btn-warning btn-block btn-sm" do %>
          <span>Keep Shopping</span>
         <% end %>

@@ -15,10 +15,17 @@ class DeliveriesController < ApplicationController
   end
 
   def create
-    @delivery = Delivery.create!(delivery_params)
-    @delivery.save
-    session[:order_id] = nil
-    redirect_to delivery_path(@delivery)
+    @delivery = Delivery.create(delivery_params)
+    respond_to do |format|
+      if @delivery.save
+        format.html { redirect_to @delivery, notice: 'Delivery was successfully created.' }
+        format.json { render :show, status: :created, location: @delivery }
+        session[:order_id] = nil
+      else
+        format.html { render :error }
+        format.json { render json: @delivery.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def update

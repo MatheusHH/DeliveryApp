@@ -17,6 +17,10 @@
                   <%= f.email_field :email, class: "form-control form-control-user", id: "exampleInputEmail", placeholder: "Email Address", autofocus: true, autocomplete: "email" %>
                 </div>
 
+                <div class="form-group">
+                  <%= f.text_field :name, class: "form-control form-control-user", id: "exampleInputEmail", placeholder: "Full Name", autofocus: true, autocomplete: "email" %>
+                </div>
+
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
                     <%= f.password_field :password, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Password", autocomplete: "new-password" %>
@@ -29,29 +33,26 @@
                 <%= f.fields_for :address do |ff| %>
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                      <%= ff.text_field :cep, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o CEP", require: true %>
+                      <%= ff.text_field :cep, class: "form-control form-control-user", placeholder: "Digite o CEP", require: true %>
                     </div>
                     <div class="col-sm-6">
-                      <%= ff.text_field :street, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite a Rua", require: true %>
+                      <%= ff.text_field :street, class: "form-control form-control-user", placeholder: "Digite o nome da Rua", require: true %>
                     </div>      
                   </div>
 
                   <div class="form-group row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
-                      <%= ff.text_field :neighborhood, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o nome da Rua", require: true %>
+                      <%= ff.text_field :neighborhood, class: "form-control form-control-user", placeholder: "Digite o nome do Bairro", require: true %>
                     </div>
                     <div class="col-sm-6">
-                      <%= ff.text_field :city, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o nome da Cidade", require: true %>
+                      <%= ff.text_field :city, class: "form-control form-control-user", placeholder: "Digite o nome da Cidade", require: true %>
                     </div>
                   </div>
 
                   <div class="form-group">
-                    <%= ff.text_field :state, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Digite o nome do Estado", require: true %>
+                    <%= render_states_devise("state")  %>
                   </div>
-
                 <% end %>
-
-
 
                 <div class="actions">
                   <%= f.submit "Sign up", class: "btn btn-primary btn-user btn-block" %>

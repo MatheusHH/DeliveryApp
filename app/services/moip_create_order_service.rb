@@ -8,7 +8,7 @@ class MoipCreateOrderService
  
   def call
     @order = @api.order.create(order_json)
-    Payment.create(moip_id: @order["id"], status: :processando, order_id: @params[:payment][:order_id], user_id: @params[:payment][:user_id], total_cents: @params[:payment][:subtotal].to_i)
+    Payment.create!(moip_id: @order["id"], status: :processando, order_id: @params[:payment][:order_id], user_id: @params[:payment][:user_id], total_cents: @params[:payment][:subtotal].to_i)
   end
  
   private

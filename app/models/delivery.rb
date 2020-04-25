@@ -8,6 +8,11 @@ class Delivery < ApplicationRecord
   before_validation :set_status, on: :create
   before_destroy :set_order_payment
 
+  validates :user_id, presence: true
+
+  validates :order_id, uniqueness: { scope: :order_id,
+    message: "You have already created this delivery!" }
+
   private
 
    def close_order
