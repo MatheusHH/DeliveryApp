@@ -1,0 +1,70 @@
+pt-BR:
+  activerecord:
+    models:
+      user:
+        one: Usuário
+        other: Usuários
+      address:
+        one: Endereço
+        other: Endereços
+      category: 
+        one: Categoria
+        other: Categorias
+      delivery: 
+        one: Entrega
+        other: Entregas
+      order_item:
+        one: Item
+        other: Itens
+      order:
+        one: Pedido
+        other: Pedidos
+      payment:
+        one: Pagamento
+        other: Pagamentos
+      product: 
+        one: Produto
+        other: Produtos
+
+    attributes:
+      user:
+        name: Nome
+        email: Email
+        role: Tipo de Usuário
+      address:
+        street: Rua
+        neighborhood: Bairro
+        state: Estado
+        city: Cidade
+      category:
+        title: Título
+      delivery:
+        order_id: Pedido
+        user: Cliente
+        status: Status
+      order_item:
+        quantity: Quantidade
+        product_id: Produto
+        order_id: Pedido
+        total: Total
+        unit_price: Preço Unitário
+      order: 
+        subtotal: Subtotal
+        total: Total
+        status: Status
+      payment:
+        order_id: Pedido
+        user: Cliente
+        status: Status
+        total: Total
+        moip_id: Cód Pgt Moip
+      product:
+        title: Nome
+        image: Imagem
+        description: Descrição
+        price: Preço
+      user:
+        name: Nome
+        email: Email
+        role: Papel
+

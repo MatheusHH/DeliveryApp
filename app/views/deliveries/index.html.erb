@@ -1,14 +1,16 @@
-<h1>Deliverys</h1>
 <div class="card shadow p-3 mb-5">
+  <div class="card-header" style="text-align: center">
+    <h3><%= @deliveries.model_name.human(count: 2) %></h3>
+  </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Order Number</th>
-            <th>Customer</th>
-            <th>Status</th>
-            <th>Actions</th>
+            <th><%= @deliveries.human_attribute_name("order_id") %></th>
+            <th><%= @deliveries.human_attribute_name("user") %></th>
+            <th><%= @deliveries.human_attribute_name("status") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
           </tr>
         </thead>
 
@@ -35,6 +37,15 @@
     </div>
 
     <br>
+    <hr>
+    <div class=row>
+      <div class="col-lg-4 col-md-6 mb-4"></div>
+        <div class="col-lg-4 col-md-6 mb-4" id="pagination">
+          <%= paginate @deliveries %>
+        </div>
+      <div class="col-lg-4 col-md-6 mb-4"></div>
+    </div>
 
   </div>  
 </div>
+

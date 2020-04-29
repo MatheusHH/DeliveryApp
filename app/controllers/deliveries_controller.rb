@@ -3,7 +3,7 @@ class DeliveriesController < ApplicationController
   before_action :set_delivery, only: [:show, :edit, :update, :destroy]
 
   def index
-    @deliveries = policy_scope(Delivery).all
+    @deliveries = policy_scope(Delivery).order(status: :asc).page(params[:page]).per(4)
   end
 
   def show

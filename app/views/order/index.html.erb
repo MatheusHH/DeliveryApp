@@ -32,6 +32,14 @@
     </div>
 
     <br>
+    <hr>
+    <div class=row>
+      <div class="col-lg-4 col-md-6 mb-4"></div>
+        <div class="col-lg-4 col-md-6 mb-4" id="pagination">
+          <%= paginate @orders %>
+        </div>
+      <div class="col-lg-4 col-md-6 mb-4"></div>
+    </div>
 
     <div class="actions">
       <%= link_to root_path, class: "btn btn-warning btn-block btn-sm" do %>
@@ -39,11 +47,4 @@
       <% end %>
     </div>
   </div> 
-</div>
-<div class=row>
-    <div class="col-lg-4 col-md-6 mb-4"></div>
-      <div class="col-lg-4 col-md-6 mb-4">
-         <%= paginate @orders %>
-      </div>
-    <div class="col-lg-4 col-md-6 mb-4"></div>
 </div>

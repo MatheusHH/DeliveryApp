@@ -1,4 +1,8 @@
-<h1>New Category</h1>
+<div class="card shadow p-3 mb-5">
+  <div class="card-header" style="text-align: center">
+    <h3><%= t('actions.new(a)', model: @category.model_name.human)%></h3>
+  </div>
+</div>
 
 <%= render 'form', category: @category %>
 

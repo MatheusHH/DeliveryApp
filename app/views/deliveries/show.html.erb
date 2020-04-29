@@ -1,18 +1,18 @@
 <div class="card shadow p-3 mb-5">
-  <div class="card-header"> Order Details </div>
+  <div class="card-header" style="text-align: center"> <%= t('model_helpers.delivery.order_details') %> </div>
   <div class="card-body">
     <p>
-      <strong>Order Number:</strong>
+      <strong><%= t('model_helpers.delivery.order_id') %>:</strong>
       <%= @delivery.order.id %>
     </p>
 
     <p>
-      <strong>Order Status Payment:</strong>
+      <strong><%= t('model_helpers.delivery.payment_status') %>:</strong>
       <%= @delivery.order.status %>
     </p>
 
     <p>
-      <strong>Delivery Status:</strong>
+      <strong><%= t('model_helpers.delivery.delivery_status') %>:</strong>
       <%= @delivery.status %>
     </p>
 
@@ -21,47 +21,47 @@
 
 
 <div class="card shadow p-3 mb-5">
-  <div class="card-header"> Customer Address </div>
+  <div class="card-header" style="text-align: center"> <%= t('model_helpers.delivery.customer_details') %> </div>
   <div class="card-body">
     <p>
-      <strong>Customer:</strong>
+      <strong><%= t('model_helpers.delivery.customer') %>:</strong>
       <%= @delivery.user.name %>
     </p>
 
     <p>
-      <strong>Street:</strong>
+      <strong><%= t('model_helpers.delivery.address.street') %>:</strong>
       <%= @delivery.user.address.street %>
     </p>
 
     <p>
-      <strong>Neighborhood:</strong>
+      <strong><%= t('model_helpers.delivery.address.neighborhood') %>:</strong>
       <%= @delivery.user.address.neighborhood %>
     </p>
 
     <p>
-      <strong>City:</strong>
+      <strong><%= t('model_helpers.delivery.address.city') %>:</strong>
       <%= @delivery.user.address.city %>
     </p>
 
     <p>
-      <strong>State:</strong>
+      <strong><%= t('model_helpers.delivery.address.state') %>:</strong>
       <%= @delivery.user.address.state %>
     </p>
   </div>
 </div>
 
 <div class="card shadow p-3 mb-5">
-  <div class="card-header"> Shopping Description </div>
+  <div class="card-header" style="text-align: center"> <%= t('model_helpers.delivery.shopping_description') %> </div>
   <div class="card-body">
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Product</th>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total Item</th>
+            <th><%= t('model_helpers.delivery.order.items.product_image') %></th>
+            <th><%= t('model_helpers.delivery.order.items.product') %></th>
+            <th><%= t('model_helpers.delivery.order.items.quantity') %></th>
+            <th><%= t('model_helpers.delivery.order.items.price') %></th>
+            <th><%= t('model_helpers.delivery.order.items.total_item') %></th>
           </tr>
         </thead>
 

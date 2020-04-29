@@ -1,0 +1,3 @@
+pt-BR:
+  pundit:
+    default: 'Você não tem autorização para realizar esta ação ou a página não existe.'

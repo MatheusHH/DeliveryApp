@@ -1,3 +1,7 @@
-<h1>Editing Delivery</h1>
+<div class="card shadow p-3 mb-5">
+  <div class="card-header" style="text-align: center">
+    <h3><%= t('actions.edit', model: @delivery.model_name.human)%></h3>
+  </div>
+</div>
 
-<%= render 'form', delivery: @delivery %>
+<%= render 'form', delivery: @delivery %> 
