@@ -3,8 +3,10 @@ pt-BR:
     actions:
       create:
         notice: "%{model} criado com sucesso !"
+        notice(a): "%{model} criada com sucesso !"
       update:
         notice: "%{model} foi atualizado com sucesso !"
+        notice(a): "%{model} criada com sucesso !"
       destroy:
         notice: "Apagado com sucesso !"
         alert: "Registro não pode ser destruído !"

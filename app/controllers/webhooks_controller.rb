@@ -11,6 +11,7 @@ class WebhooksController < ApplicationController
       payment.order.update(status: :pago)
     elsif params['event'] == 'ORDER.NOT_PAID'
       payment.update(status: :recusado)
+      payment.order.update(status: :pendente)
     end
  
     render json: {status: :ok}

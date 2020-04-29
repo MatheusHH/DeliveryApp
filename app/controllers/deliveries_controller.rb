@@ -18,7 +18,7 @@ class DeliveriesController < ApplicationController
     @delivery = Delivery.create(delivery_params)
     respond_to do |format|
       if @delivery.save
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully created.' }
+        format.html { redirect_to @delivery, notice: t('flash.actions.create.notice', model: @delivery.model_name.human) }
         format.json { render :show, status: :created, location: @delivery }
         session[:order_id] = nil
       else
@@ -31,7 +31,7 @@ class DeliveriesController < ApplicationController
   def update
     respond_to do |format|
       if @delivery.update(delivery_params)
-        format.html { redirect_to @delivery, notice: 'Delivery was successfully updated.' }
+        format.html { redirect_to @delivery, notice: t('flash.actions.update.notice', model: @delivery.model_name.human) }
         format.json { render :show, status: :created, location: @delivery }
       else
         format.html { render :edit } 
@@ -44,7 +44,7 @@ class DeliveriesController < ApplicationController
     authorize @delivery
     @delivery.destroy
     respond_to do |format|
-      format.html { redirect_to deliveries_url, notice: 'Delivery was successfully destroyed.' }
+      format.html { redirect_to deliveries_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

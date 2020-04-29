@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     authorize @user
+    @user.build_address
   end
 
   # POST /users

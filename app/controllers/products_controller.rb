@@ -33,7 +33,7 @@ class ProductsController < ApplicationController
     @product.image.attach(params[:image])
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
+        format.html { redirect_to @product, notice: t('flash.actions.create.notice', model: @product.model_name.human) }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to @product, notice: 'Product was successfully updated.' }
+        format.html { redirect_to @product, notice: t('flash.actions.update.notice', model: @product.model_name.human) }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }
@@ -59,10 +59,10 @@ class ProductsController < ApplicationController
   # DELETE /products/1
   # DELETE /products/1.json
   def destroy
-    authorize @product
+    authorize @product 
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
+      format.html { redirect_to products_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

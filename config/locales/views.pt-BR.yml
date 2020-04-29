@@ -122,6 +122,22 @@ pt-BR:
  
   confirm: Você tem certeza?
 
+  views:
+    home: Início
+    menu: Itens
+    customers: Meus Clientes
+    products: Meus Produtos
+    categories: Minhas Categorias
+    orders: Meus Pedidos
+    deliveries: Minhas Entregas 
+    options: Minhas Opções
+    charts: Meus Gráficos
+    records: Meus Cadastros
+    reports: Meus Relatórios
+  cart:
+    keep_shopping: Continue comprando...
+    review_data: Conferir dados 
+
   model_helpers:
     delivery:
       order_details: Detalhes do Pedido
@@ -145,6 +161,13 @@ pt-BR:
           total_item: Total Item
     category:
       title: Título
+    product:
+      title: Título
+      image: Imagem
+      description: Descrição
+      price: Preço
+      category:
+        title: Categoria
     checkout_free:
       order_details: Detalhes do Pedido
       customer_details: Detalhes do Cliente
@@ -165,4 +188,11 @@ pt-BR:
           quantity: Qt
           price: Preço
           total_item: Total Item
-    
+    payment:
+      shopping_description: Descrição da Compra
+      items:
+        product_image: Imagem
+        product: Produto
+        quantity: Qt
+        price: Preço
+        total_item: Total Item

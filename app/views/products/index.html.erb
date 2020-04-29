@@ -7,11 +7,10 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Image</th>
-            <th>User</th>
-            <th>Actions</th>
+            <th><%= @products.human_attribute_name("title") %></th> 
+            <th><%= @products.human_attribute_name("price") %></th>
+            <th><%= @products.human_attribute_name("image") %></th>
+            <th><%= t('helpers.submit.actions') %></th>
           </tr>
         </thead>
 
@@ -21,7 +20,6 @@
               <td><%= product.title %></td>
               <td><%= product.price %></td>
               <td><%= image_tag product.image.variant(resize: "100x100") if product.image.attached? %></td>
-              <td><%= product.user_id %></td>
               <td><%= link_to edit_product_path(product), class: "btn btn-info btn-circle" do %>
                 <i class="fas fa-edit"></i>
               <% end %>
@@ -47,10 +45,10 @@
         </div>
       <div class="col-lg-4 col-md-6 mb-4"></div>
     </div>
-
+   
     <%= link_to new_product_path, class: "btn btn-primary btn-icon-split btn-sm" do %>
     <i class="fas fa-plus"></i>
-    <span class="text"> New</span>
+    <span class="text"> <%= t('actions.new', model: @products.model_name.human) %></span>
     <% end %>
   </div>  
 </div>

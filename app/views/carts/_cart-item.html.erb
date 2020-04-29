@@ -2,7 +2,7 @@
    <div class="card shadow p-3 mb-5 shopping-cart">
         <div class="card-header bg-dark text-light">
             <%= link_to root_path, class: "btn btn-outline-info btn-sm pull-right" do %>
-              <span>Keep shopping</span>
+              <span><%= t('cart.keep_shopping')%></span>
             <% end %>
             <div class="clearfix"></div>
         </div>
@@ -60,7 +60,7 @@
                 <% unless current_order.id.nil? %>
                   <%= link_to checkout_free_path(current_order.id), class: "btn btn-success btn-block btn-sm" do %>
                     <i class="fas fa-truck"></i>
-                    <span>Review Order and data </span>
+                    <span><%= t('cart.review_data')%></span>
                   <% end %>
                 <% end %>
               </div>

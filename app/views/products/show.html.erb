@@ -3,28 +3,29 @@
   <div class="card-header">Product Details </div>
   <div class="card-body">
     <p>
-      <strong>Title:</strong>
+      <strong><%= t('model_helpers.product.title')%>:</strong>
       <%= @product.title %>
     </p>
 
     <p>
-      <strong>Price:</strong>
+      <strong><%= t('model_helpers.product.price')%>:</strong>
       <%= @product.price %>
     </p>
 
     <p>
-      <strong>Category:</strong>
+      <strong><%= t('model_helpers.product.image')%>:</strong>
+      <br>
+      <%= image_tag @product.image.variant(resize: "300x300") if @product.image.attached? %>
+    </p>
+
+    <p>
+      <strong><%= t('model_helpers.product.category.title')%>:</strong>
       <%= @product.category.title %>
     </p>
 
     <p>
-      <strong>Description:</strong>
+      <strong><%= t('model_helpers.product.description')%>:</strong>
       <%= @product.description %>
-    </p>
-
-    <p>
-      <strong>User:</strong>
-      <%= @product.user_id %>
     </p>
     
     <div class="card-footer">
@@ -36,4 +37,4 @@
     </div>
     </div>
   </div>
-</div>
+</div> 

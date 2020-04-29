@@ -44,7 +44,7 @@
 
     <%= link_to new_category_path, class: "btn btn-primary btn-icon-split btn-sm" do %>
     <i class="fas fa-plus"></i>
-    <span class="text"> New</span>
+    <span class="text"> <%= t('actions.new(a)', model: @categories.model_name.human) %></span>
     <% end %>
   </div>  
 </div>
