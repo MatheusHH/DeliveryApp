@@ -9,7 +9,7 @@ class PaymentsController < ApplicationController
     begin
       @order = MoipCreateOrderService.new(params).call
       MoipCreatePaymentService.new(@order, params).call
-      redirect_to root_path, notice: 'Order has been paid successfully !.'
+      redirect_to root_path, notice: t('flash.actions.create.payment')
     rescue ActiveRecord::RecordInvalid => invalid
       render "payments/error"
     end

@@ -72,6 +72,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (~> 1.5)
       xpath (~> 3.2)
+    chartkick (3.3.1)
     childprocess (3.0.0)
     concurrent-ruby (1.1.6)
     connection_pool (2.2.2)
@@ -86,6 +87,8 @@ GEM
     ffi (1.12.2)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.0.0)
+      activesupport (>= 5)
     httparty (0.18.0)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
@@ -265,7 +268,9 @@ DEPENDENCIES
   bootsnap (>= 1.4.2)
   byebug
   capybara (>= 2.15)
+  chartkick
   devise
+  groupdate
   image_processing
   jbuilder (~> 2.7)
   kaminari

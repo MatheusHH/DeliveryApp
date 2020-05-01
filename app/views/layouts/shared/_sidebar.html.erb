@@ -73,20 +73,24 @@
     </li>
 
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
-
-    <!-- Heading -->
-    <div class="sidebar-heading">
-       <%= t('views.reports')%>
-    </div>
-
     <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span><%= t('views.charts')%></span></a>
-    </li>
+    <% if policy(current_user).index? %>
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+       
+      <div class="sidebar-heading">
+        <%= t('views.reports')%>
+      </div>
+
+      <!-- Nav Item - Charts -->
+      
+      <li class="nav-item">
+        <%= link_to reports_index_path, class: "nav-link" do %>
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span><%= t('views.charts')%></span>
+        <% end %>
+      </li>
+    <% end %>
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

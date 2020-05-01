@@ -119,6 +119,7 @@ pt-BR:
     submit:
       create: "Salvar"
       actions: Ações
+    pay_order: Pagar Pedido
  
   confirm: Você tem certeza?
 
@@ -136,7 +137,9 @@ pt-BR:
     reports: Meus Relatórios
   cart:
     keep_shopping: Continue comprando...
-    review_data: Conferir dados 
+    review_data: Conferir dados
+  charts:
+      sales_by_month: Total de vendas (últimos 12 mêses) 
 
   model_helpers:
     delivery:

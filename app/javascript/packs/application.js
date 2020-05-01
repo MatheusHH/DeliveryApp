@@ -11,6 +11,8 @@ require('jquery')
 require("packs/sbadmin2")
 require("packs/mobile")
 require("packs/jquery-easing")
+require("chartkick")
+require("chart.js")
 require("packs/notify");
 require ("packs/payments");
 

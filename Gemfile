@@ -31,8 +31,12 @@ gem 'money-rails', '~>1.12'
 gem 'kaminari'
 # Active Storage processing
 gem 'image_processing'
-# Payment Checkout
+# Payment Checkout Moip
 gem 'moip2'
+# Charts Rails
+gem 'groupdate'
+# Gem for charts
+gem "chartkick"
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password

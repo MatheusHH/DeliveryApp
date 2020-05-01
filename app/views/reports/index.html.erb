@@ -1,0 +1,8 @@
+<div class="card shadow p-3 mb-5">
+  <div class="card-header" style="text-align: center">
+    <h3><%= t('charts.sales_by_month')%></h3>
+  </div>
+  <div class="card-body">
+    <%= bar_chart @total_sales.group_by_month(:created_at, format: "%b %Y", last: 12).sum("(subtotal_cents/100.00)"), prefix: "R$", thousands: ".", decimal: ",", donut: true, round: 2, zeros: true %>
+  </div>  
+</div>

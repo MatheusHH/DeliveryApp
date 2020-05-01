@@ -1,5 +1,5 @@
 <% unless @order.payment.present? %>
-  <%= form.submit "Pay Order", class: "btn btn-success btn-block btn-sm" %>
+  <%= form.submit t('helpers.pay_order'), class: "btn btn-success btn-block btn-sm" %>
 <% else %>
   <h5>You have already paid this order !<h5>
 <% end%>
