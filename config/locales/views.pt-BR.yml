@@ -127,7 +127,7 @@ pt-BR:
     home: Início
     menu: Itens
     customers: Meus Clientes
-    products: Meus Produtos
+    products: Meus Produtos 
     categories: Minhas Categorias
     orders: Meus Pedidos
     deliveries: Minhas Entregas 
@@ -139,7 +139,11 @@ pt-BR:
     keep_shopping: Continue comprando...
     review_data: Conferir dados
   charts:
-      sales_by_month: Total de vendas (últimos 12 mêses) 
+    best_sellers: Produtos mais vendidos
+    sales_by_month_by_card: Total de vendas por cartão (últimos 12 mêses)
+    sales_by_month_by_money: Total de vendas por dinheiro (últimos 12 mêses)
+    sales_by_customers: Vendas por cliente 
+
 
   model_helpers:
     delivery:
@@ -150,6 +154,9 @@ pt-BR:
       payment_status: Status Pagamento
       delivery_status: Status Entrega
       customer: Cliente
+      store_payment: "Vou pagar em mãos"
+      card_payment: Vou pagar com cartão agora
+      back_deliveries: Voltar às entregas
       address:
         street: Rua
         neighborhood: Bairro
@@ -165,6 +172,7 @@ pt-BR:
     category:
       title: Título
     product:
+      product_details: Detalhes do produto
       title: Título
       image: Imagem
       description: Descrição
@@ -199,3 +207,5 @@ pt-BR:
         quantity: Qt
         price: Preço
         total_item: Total Item
+    user:
+      user_details: Detalhes do Usuário

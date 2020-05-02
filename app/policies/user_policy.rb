@@ -16,7 +16,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def redirect_form?
-    user.owner?
+    user.owner? || user.admin?
   end
 
   def new?

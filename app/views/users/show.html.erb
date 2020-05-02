@@ -1,6 +1,5 @@
-<p id="notice"><%= notice %></p>
 <div class="card shadow p-3 mb-5">
-<div class="card-header"> Customer Details </div>
+<div class="card-header" style="text-align: center"> <%= t('model_helpers.user.user_details')%> </div>
   <div class="card-body">
     <p>
       <strong>Name:</strong>
@@ -11,7 +10,7 @@
       <strong>Email:</strong>
       <%= @user.email %>
     </p>
-
+ 
     <p>
       <strong>Street:</strong>
       <%= @user.address.street %>
