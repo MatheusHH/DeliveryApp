@@ -76,7 +76,7 @@ class UsersController < ApplicationController
     # Only allow a list of trusted parameters through.
     def user_params
       passwd = params[:user][:password]
-      passwd_confirmation = params[:user][:passwd_confirmation]
+      passwd_confirmation = params[:user][:password_confirmation]
 
       if passwd.blank? && passwd_confirmation.blank?
         params[:user].delete(:password)

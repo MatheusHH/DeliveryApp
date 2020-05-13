@@ -30,7 +30,6 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(product_params)
     @product.user = current_user
-    @product.image.attach(params[:image])
     respond_to do |format|
       if @product.save
         format.html { redirect_to @product, notice: t('flash.actions.create.notice', model: @product.model_name.human) }
